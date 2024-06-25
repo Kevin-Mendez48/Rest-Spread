@@ -1,0 +1,79 @@
+const filterOutOdds = (...nums) => nums.filter(num => num % 2 ===0 );
+
+function findMin (...args){
+    if (args.length === 0){
+        return undefined;
+    }
+
+    let min = args[0]
+    for(i = 0; i < args.length; i++){
+        if (args[i] < min){
+            min = args[i];
+        }
+    }
+    return min;
+}
+
+function mergeObjects (...objs){
+    let merged = {};
+    objs.forEach(obj => {
+        for (let key in obj){
+            merged[key] = obj[key];
+        }
+    });
+    return merged;
+}
+function doubleAndReturnArgs(arr,...args){
+    let merged = [...arr]
+    for ( let i = 0; i < args.length, i++){
+        merged.push(args[i] * 2 );
+    }
+    return merged
+
+}
+
+function removeRandom(...items){
+    let newArray = [];
+    let i = Math.floor(Math.random() * items.length) + 1;
+    for( let j = 0; j < items.length; j++){
+        if (j !== i){
+            newArray.push(items[j]);
+        }
+    }
+    return newArray;
+}
+function extend(...arrays){
+    let newArray = [];
+    let i = 0;
+
+    while (i < arrays.length){
+        let j = 0;
+        while(j <= arrays[i].length){
+            newArray.push(arrays[i][j]);
+            j++;
+        }
+        i++;
+    }
+    return newArray;
+}
+function addKeyVal(obj,key,val){
+    return{
+        ...obj,
+        [key]: val
+    };
+}
+function removeKey(obj,key){
+    const newObj = { ...obj };
+    delete newObj[key];
+    return newObj;
+
+}
+function combine(...objs){
+    return Object.assign({}, ...objs);
+}
+function update(obj,key,val){
+    return{
+        ...obj,
+        [key]:val
+    };
+}
